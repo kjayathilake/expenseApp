@@ -7,8 +7,8 @@ bottom: 0px;
 border-top :1px solid;
 border-color: #d8d8d8;
 color: #5d5d5d;
-min-height: 50px;
-align-content: center;
+min-height: 35px;
+text-align: center;
 }
 
 #tbl-list{
@@ -21,7 +21,6 @@ align-content: center;
 }
 
 #btnadd{
-position: fixed;
-bottom: 7px;
-left: 5px;
+
+
 }

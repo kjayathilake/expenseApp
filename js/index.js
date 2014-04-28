@@ -66,8 +66,8 @@ $(function(){
 				var data = ['1','576.5'];  
                 var data1 = ['2','850.0'];
 				
-				transaction.executeSql("INSERT INTO LOGS(id, total) VALUES (?, ?)", [data[0], data[1]]);
-                transaction.executeSql("INSERT INTO LOGS(id, total) VALUES (?, ?)", [data1[0], data1[1]]);
+				//transaction.executeSql("INSERT INTO LOGS(id, total) VALUES (?, ?)", [data[0], data[1]]);
+                //transaction.executeSql("INSERT INTO LOGS(id, total) VALUES (?, ?)", [data1[0], data1[1]]);
 			    }
 			);				
 		},
@@ -200,7 +200,33 @@ $(function(){
         }
 
 
-function addItem() {
+        function addItem() {
             
-               localDBDemo.addData();
+               try {
+			    if (!window.openDatabase) {
+			        alert('Local Databases are not supported by your browser. Please use a Webkit browser for this demo');
+			    } else {
+			        var shortName = 'myDB',
+			        	version = '1.0',
+						displayName = 'DEMO DB Test',
+						maxSize = 100000; // in bytes
+						
+			        DEMODB = openDatabase(shortName, version, displayName, maxSize);
+                    
+                    DEMODB.transaction(
+			         function (transaction) {
+				        transaction.executeSql("INSERT INTO LOGS( total) VALUES (?)", [document.getElementById("txtname").value]);
+			         }
+			         );	
+					
+			    }
+			} catch(e) {
+			    if (e === 2) {
+			        // Version mismatch.
+			        console.log("Invalid database version.");
+			    } else {
+			        console.log("Unknown error "+ e +".");
+			    }
+			    return;
+			}
             }
