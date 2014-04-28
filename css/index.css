@@ -1,0 +1,27 @@
+footer {
+width: 100%;
+background: #efefef;
+float: left;
+position: fixed;
+bottom: 0px;
+border-top :1px solid;
+border-color: #d8d8d8;
+color: #5d5d5d;
+min-height: 50px;
+align-content: center;
+}
+
+#tbl-list{
+    position: fixed;
+    left: 5px;
+    top: 60px;
+    right: 5px;
+    bottom: 40px;
+    z-index: -1;
+}
+
+#btnadd{
+position: fixed;
+bottom: 7px;
+left: 5px;
+}
