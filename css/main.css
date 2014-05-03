@@ -1,0 +1,17 @@
+.tablist-left {
+    width: 25%;
+    display: inline-block;
+}
+.tablist-content {
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5%;
+}
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;
+}

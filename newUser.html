@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">	
+	<title>New User</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+        
+    
+	<script src="js/jquery-2.1.0.min.js"></script> 
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script src="js/db.js"></script>
+    
+    </head>
+    <body onload="init();">
+        
+    <div id="new-user" data-role="page">
+        
+      <div data-role="header" style="overflow:hidden;">
+<h1>New User</h1>
+    <a href="users.html" data-icon="arrow-l"  class="ui-btn-left">back</a>
+    <a href="#" data-icon="ui-btn ui-icon-check" onclick="addUser();" class="ui-btn-right">Save</a>
+</div><!-- /header --> 
+        
+    <div data-role="content">
+    
+<label for="text-basic">Name:</label>
+<input type="text" name="text-basic" id="txtuser" value="">
+
+  </div><!-- /content -->
+
+   <div id="footer" data-role="footer">
+    
+  </div><!-- /footer -->
+    
+            
+     </div>
+        
+    </body>
+</html>
