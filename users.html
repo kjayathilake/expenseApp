@@ -1,41 +1,56 @@
 <html>
-    <head>
-        <meta charset="UTF-8">	
-	<title>Users</title> 
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css" />
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
     <link rel="stylesheet" href="css/main.css" />
-        
-	<script src="js/jquery-2.1.0.min.js"></script> 
-	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script src="js/db.js"></script>
-    </head>
-    <body onload="init();">
-        
+    <script src="js/index.js"></script>
+</head>
+
+<body onload="initUsers();">
+
     <div id="users" data-role="page">
-        
-      <div data-role="header" style="overflow:hidden;">
-<h1>Users</h1>
-    <a href="index.html" data-icon="arrow-l" class="ui-btn-left">Back</a>
-    <a href="newUser.html" data-icon="ui-btn ui-icon-plus" data-iconpos="notext" class="ui-btn-right"></a>
-</div><!-- /header --> 
-        
-    <div data-role="content">
-    
-<ul id="user-list" data-role="listview" data-filter="true" data-filter-placeholder="Search users..." data-inset="true">
-    
-</ul>
 
-  </div><!-- /content -->
+        <div data-role="header" style="overflow:hidden;">
+            <h1>Users</h1>
+            <a href="index.html" data-ajax="false" data-icon="arrow-l" class="ui-btn-left">Back</a>
+            <a id="newuserTag" href="newUser.html" data-ajax="false" data-icon="ui-btn ui-icon-plus" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a id="dateTag" href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+        </div>
+        <!-- /header -->
 
-   <div id="footer" data-role="footer">
-    <h6><a href="#">Summary</a></h6>
-  </div><!-- /footer -->
-    
-            
-     </div>
-        
-    </body>
+        <div data-role="content">
+
+            <ul id="user-list" data-role="listview" data-filter="true" data-filter-placeholder="Search users..." data-inset="true">
+
+            </ul>
+
+        </div>
+        <!-- /content -->
+
+        <div id="footer" data-role="footer">
+            <h6><a href="#">Summary</a></h6>
+        </div>
+        <!-- /footer -->
+
+
+    </div>
+
+</body>
+
 </html>

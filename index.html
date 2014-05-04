@@ -1,44 +1,67 @@
-<!DOCTYPE html> 
-<html> 
+<!DOCTYPE html>
+<html>
+
 <head>
-  <meta charset="UTF-8">	
-	<title>Restaurant Picker</title> 
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css" />
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
+    <meta charset="UTF-8">
+    <title>Restaurant Picker</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
     <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css" />
-	<link rel="stylesheet" href="css/main.css" />
-        
-	<script src="js/jquery-2.1.0.min.js"></script> 
-	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
-</head> 
+    <script src="js/index.js"></script>
+</head>
 
-<body> 
- <div id="welcome-page" data-role="page">
+<body>
+    <div id="welcome-page" data-role="page">
 
-  <div data-role="header">
-    <h1>Daily Dessert</h1>
-  </div><!-- /header -->
+        <div data-role="header">
+            <h1>Daily Dessert</h1>
+        </div>
+        <!-- /header -->
 
-  <div data-role="content">
-    
-    <div id="datepicker"></div>
+        <div data-role="content">
 
-  </div><!-- /content -->
+            <div id="datepicker"></div>
 
-   <div id="footer" data-role="footer">
-    <h6><a href="users.html">NEXT</a></h6>
-  </div><!-- /footer -->
+        </div>
+        <!-- /content -->
 
-</div><!-- /page -->
-    
-    
-<script>
-    $( "#datepicker" ).datepicker();
-</script>
+        <div id="footer" data-role="footer">
+            <h6><a id="btnnext" href="users.html" data-ajax="false">NEXT</a></h6>
+        </div>
+        <!-- /footer -->
 
-    
+    </div>
+    <!-- /page -->
+
+
+    <script>
+        
+        $("#datepicker").datepicker(
+            {
+                onSelect: function(selectedDate) 
+                {
+                    // custom callback logic here
+                    document.getElementById("btnnext").href = "users.html?date="+selectedDate;
+                    localStorage.selectedDate = selectedDate;
+                }
+            });
+        var cdate = new Date();
+        var day = cdate.getDate();
+        var month = cdate.getMonth()+1;
+        var year = cdate.getFullYear();
+        
+        document.getElementById("btnnext").href = "users.html?date="+month+"/"+day+"/"+year;
+        localStorage.selectedDate = month+"/"+day+"/"+year;
+        
+    </script>
+
 </body>
+
 </html>

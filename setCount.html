@@ -16,21 +16,21 @@
 
 </head>
 
-<body onload="init();">
+<body onload="initDessertCount();">
 
-    <div id="new-user" data-role="page">
+    <div id="new-dessert" data-role="page">
 
         <div data-role="header" style="overflow:hidden;">
-            <h1>New User</h1>
-            <a id="dateTagBack" href="users.html" data-icon="arrow-l" data-ajax="false" class="ui-btn-left">Back</a>
-            <a href="#" data-icon="ui-btn ui-icon-check" onclick="addUser();" class="ui-btn-right">Save</a>
+            <h1 id="dtitle">Set Dessert Count</h1>
+            <a href="desserts.html" data-icon="arrow-l" data-ajax="false" class="ui-btn-left">Back</a>
+            <a href="#" data-icon="ui-btn ui-icon-check" onclick="addUserDessert();" class="ui-btn-right">Save</a>
         </div>
         <!-- /header -->
 
         <div data-role="content">
 
-            <label for="text-basic">Name:</label>
-            <input type="text" name="text-basic" id="txtuser" value="">
+            <label for="text-basic">Count:</label>
+            <input type="text" name="text-basic" id="txtdessertcount" value="">
 
         </div>
         <!-- /content -->
