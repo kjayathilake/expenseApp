@@ -57,6 +57,8 @@ function initDessertCount() {
         localStorage.selectedDessert = dname;
     }
     document.getElementById("dtitle").innerHTML = localStorage.selectedDessert;
+    
+    html5rocks.webdb.selectUserDessertCount(setDessertCount,localStorage.selectedDessert);
 }
 
 
@@ -177,16 +179,8 @@ function loadDesserts(tx, rs) {
 }
 
 function renderDessert(row) {
-  html5rocks.webdb.selectUserDessertCount(setDessertCount,row.name);
     
-    var dsc = localStorage.getItem(row.name);
-    
-    if(dsc==null)
-    {
-        dsc = 0;
-    }
-    
-    return "<li><a href='setCount.html?dessert=" + row.name + "' data-ajax='false' class='ui-btn ui-btn-inline '>" + row.name + "<span id="+row.name+" class='ui-li-count'>"+dsc+"</span></a></li>";
+    return "<li><a href='setCount.html?dessert=" + row.name + "' data-ajax='false' class='ui-btn ui-btn-icon-right ui-icon-carat-r'>" + row.name + "</a></li>";
     
     //return "<div class='ui-checkbox'><input type='checkbox' name='"+row.name+"' id='"+row.name+"' checked=''><label for='"+row.name+"'>"+row.name+"</label></div>"
 }
@@ -295,7 +289,7 @@ html5rocks.webdb.selectUserDessertCount = function (renderFunc,dname) {
     var db = html5rocks.webdb.db;
     db.transaction(function (tx) {
 
-        tx.executeSql("SELECT dcount,dessert FROM userdessert WHERE user=? and dessert=? and date=?", [localStorage.selectedUser, dname, localStorage.selectedDate],
+        tx.executeSql("SELECT dcount FROM userdessert WHERE user=? and dessert=? and date=?", [localStorage.selectedUser, dname, localStorage.selectedDate],
             renderFunc,
             html5rocks.webdb.onError);
     });
@@ -304,6 +298,6 @@ html5rocks.webdb.selectUserDessertCount = function (renderFunc,dname) {
 function setDessertCount(tx, rs) {
 
     for (var i = 0; i < rs.rows.length; i++) {
-        localStorage.setItem(rs.rows.item(i).dessert,rs.rows.item(i).dcount);
+        document.getElementById("txtdessertcount").value = rs.rows.item(i).dcount;
     }
 }
